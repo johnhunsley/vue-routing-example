@@ -1,15 +1,21 @@
 
-Vue.component('template1', {
-    template: '#template1'
-})
+var one = Vue.component('template1', {
+    template: '<p>this is template 1</p>'
+});
 
-Vue.component('template2', {
-    template: '#template2'
-})
+var two = Vue.component('template2', {
+    template: '<p>this is template 2</p>'
+});
+
+var routes = [
+    {path: '/one', component: one},
+    {path: '/two', component: two}
+]
+
+var router = new VueRouter({
+   routes
+});
 
 new Vue({
-    el: 'body',
-    data: {
-        currentView: 'template1'
-    }
-})
+    router
+}).$mount('#main-container');
